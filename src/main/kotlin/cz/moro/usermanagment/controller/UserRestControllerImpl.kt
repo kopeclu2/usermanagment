@@ -23,6 +23,8 @@ import org.springframework.data.domain.PageRequest
 import org.springframework.data.domain.Pageable
 import org.springframework.http.MediaType
 import org.springframework.http.ResponseEntity
+import org.springframework.security.access.prepost.PreAuthorize
+import org.springframework.security.core.Authentication
 import org.springframework.web.bind.annotation.*
 
 
@@ -184,4 +186,9 @@ interface UserRestControllerImpl {
     @GetMapping
     @PageableAsQueryParam
     fun listUsers(@Parameter(hidden = true) pageRequest: Pageable): ResponseEntity<UserListResponse>
+
+    @Operation(summary = "Get me", description = "Get me.", security = [SecurityRequirement(name = "basicAuth")])
+    @GetMapping("/me")
+    @PreAuthorize("isFullyAuthenticated()")
+    fun me(@Parameter(hidden = true) authentication: Authentication): ResponseEntity<String>
 }

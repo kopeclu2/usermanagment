@@ -1,8 +1,8 @@
 CREATE TABLE users
 (
     id   BIGSERIAL PRIMARY KEY,
-    name VARCHAR(255) NOT NULL UNIQUE,
-    username VARCHAR(255) NOT NULL,
+    name VARCHAR(255) NOT NULL ,
+    username VARCHAR(255) NOT NULL UNIQUE,
     password VARCHAR NOT NULL,
     user_role VARCHAR DEFAULT 'USER'
 );

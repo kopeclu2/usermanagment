@@ -2,14 +2,18 @@ package cz.moro.usermanagment.security
 
 import cz.moro.usermanagment.controller.RestControllerConstants.GET_BY_ID_USER_REST_CONTROLLER_PATH
 import cz.moro.usermanagment.controller.RestControllerConstants.USER_REST_CONTROLLER_PATH
+import org.slf4j.LoggerFactory
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.http.HttpMethod
+import org.springframework.security.authentication.AuthenticationEventPublisher
 import org.springframework.security.authentication.ProviderManager
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider
 import org.springframework.security.config.annotation.web.builders.HttpSecurity
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity
 import org.springframework.security.config.http.SessionCreationPolicy
+import org.springframework.security.core.Authentication
+import org.springframework.security.core.AuthenticationException
 import org.springframework.security.core.userdetails.UserDetailsService
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
 import org.springframework.security.web.SecurityFilterChain
@@ -23,6 +27,7 @@ class SecurityConfiguration(
     private val accessDeniedExceptionHandler: AccessDeniedExceptionHandler
 ) {
 
+    private val log = LoggerFactory.getLogger(this::class.java)
 
     @Bean("BasicAuthenticationProvider")
     fun userDetailsService(

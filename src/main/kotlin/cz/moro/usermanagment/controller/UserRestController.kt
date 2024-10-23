@@ -16,6 +16,9 @@ import org.springframework.data.domain.PageRequest
 import org.springframework.data.domain.Pageable
 import org.springframework.http.MediaType
 import org.springframework.http.ResponseEntity
+import org.springframework.security.access.prepost.PreAuthorize
+import org.springframework.security.core.Authentication
+import org.springframework.security.core.userdetails.User
 import org.springframework.validation.annotation.Validated
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
@@ -48,6 +51,10 @@ class UserControllerImpl2(private val userService: UserService): UserRestControl
     override fun listUsers(pageRequest: Pageable): ResponseEntity<UserListResponse> {
         val response = userService.listUsers(pageRequest)
         return ResponseEntity.ok(response)
+    }
+
+    override fun me(authentication: Authentication): ResponseEntity<String> {
+        return ResponseEntity.ok((authentication.principal as User).username)
     }
 
 

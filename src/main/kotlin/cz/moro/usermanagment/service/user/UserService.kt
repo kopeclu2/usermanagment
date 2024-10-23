@@ -68,6 +68,7 @@ class UserService(
         return userMapper.mapToResponse(page)
     }
 
+
     override fun loadUserByUsername(username: String): UserDetails {
         return userRepository.findByUsername(username)
             ?.let(userMapper::mapToUserDetails)
