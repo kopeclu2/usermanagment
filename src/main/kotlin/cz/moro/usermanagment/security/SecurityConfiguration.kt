@@ -1,7 +1,7 @@
 package cz.moro.usermanagment.security
 
-import cz.moro.usermanagment.controller.RestControllerConstants.GET_BY_ID_USER_REST_CONTROLLER_PATH
-import cz.moro.usermanagment.controller.RestControllerConstants.USER_REST_CONTROLLER_PATH
+import cz.moro.usermanagment.controller.handler.RestControllerConstants.GET_BY_ID_USER_REST_CONTROLLER_PATH
+import cz.moro.usermanagment.controller.handler.RestControllerConstants.USER_REST_CONTROLLER_PATH
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.http.HttpMethod

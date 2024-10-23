@@ -1,4 +1,4 @@
-package cz.moro.usermanagment.controller
+package cz.moro.usermanagment.controller.handler
 
 import cz.moro.usermanagment.controller.request.UserRequest
 import cz.moro.usermanagment.controller.response.ValidationPathError
@@ -6,14 +6,11 @@ import cz.moro.usermanagment.exception.UserNotFoundByIdException
 import cz.moro.usermanagment.exception.UsernameAlreadyExistsException
 import jakarta.validation.ConstraintViolationException
 import org.springframework.http.HttpStatus
-import org.springframework.http.ResponseEntity
-import org.springframework.validation.FieldError
 import org.springframework.web.ErrorResponse
 import org.springframework.web.bind.MethodArgumentNotValidException
 import org.springframework.web.bind.annotation.ControllerAdvice
 import org.springframework.web.bind.annotation.ExceptionHandler
 import org.springframework.web.bind.annotation.ResponseBody
-import java.util.stream.Collectors
 
 
 @ControllerAdvice

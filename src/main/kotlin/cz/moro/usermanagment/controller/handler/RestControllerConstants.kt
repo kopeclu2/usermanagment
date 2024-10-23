@@ -1,4 +1,4 @@
-package cz.moro.usermanagment.controller
+package cz.moro.usermanagment.controller.handler
 
 object RestControllerConstants {
     const val USER_REST_CONTROLLER_PATH = "/api/v1/users"
